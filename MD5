@@ -1,0 +1,15 @@
+df26292e2deadda1dddc3b399ed69d3b *DESCRIPTION
+6ccba8d8205a665218a7742dd5ab605d *NAMESPACE
+88fef904a7bf01faf6a4994a22a20312 *R/ordiplot3d.R
+9a5b2d59884e71926bf7af1503f5ab5f *R/ordirgl.R
+c53e9402a842833d80a8df39c0adee6f *R/orglpoints.R
+56c4036863990ae0ec88a8d459540fd0 *R/orglsegments.R
+7ea9d2eb332869c020abe77e3ac6e416 *R/orglspider.R
+647cd6f0ffa48070eeaa095bb9057884 *R/orgltext.R
+bdbed35a667499b2fbf49dff06c2dcfe *R/rgl.isomap.R
+8707a6885617ed42d0bbbe88cd5ddadd *R/rgl.renyiaccum.R
+4c6f76131670c92476cbc687e6b5c667 *README.md
+92f81687d7b3a939d4f40e2c10839ca7 *man/ordiplot3d.Rd
+fdfc154857ab2871a72b941d6425295d *man/ordirgl.Rd
+dde3bfef80a701f75593776d40d628cd *man/rgl.isomap.Rd
+49bd4c6b69e2542550ca4f8d3169f1c5 *man/rgl.renyiaccum.Rd
