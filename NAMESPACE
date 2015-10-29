@@ -4,13 +4,24 @@ importFrom(vegan, scores, ordiArrowMul)
 import(rgl)
 ## scatterplot3d only has one function
 import(scatterplot3d)
+## explicit imports for base R functions
+importFrom(grDevices, rainbow, col2rgb, rgb)
+importFrom(graphics, arrows, points, segments, text)
+importFrom(stats, weighted.mean, weights, as.hclust, reorder, cov.wt, qchisq)
 
 ## export what we got
-export(ordiplot3d,
+export(orditree3d,
+       ordiplot3d,
        ordirgl,
+       ordirgltree,
+       orglcluster,
+       orglellipse,
        orglpoints,
        orglsegments,
+       orglspantree,
+       orglspider,
        orgltext,
        rgl.isomap,
        rgl.renyiaccum)
-
+## S3 methods
+S3method(scores, ordiplot3d)

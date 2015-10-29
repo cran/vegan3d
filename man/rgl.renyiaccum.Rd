@@ -2,7 +2,7 @@
 \alias{rgl.renyiaccum}
 
 \title{
-  Display dynamic perspective plot of Renyi diversity accumulation
+  Dynamic Perspective Plot of Renyi Diversity Accumulation
 }
 \description{
   Function \code{rgl.renyiaccum} displays a dynamic 3D plot of the result
@@ -43,9 +43,7 @@ rgl.renyiaccum(x, rgl.height = 0.2, ...)
   \code{\link[rgl]{rgl}}.
 }
 \examples{
-\dontrun{
-## Needs user interaction.
-
+if (interactive() && require(rgl, quietly = TRUE)){
 data(BCI)
 mod <- renyiaccum(BCI[1:12,])
 persp(mod)

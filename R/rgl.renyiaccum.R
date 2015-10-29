@@ -1,6 +1,8 @@
 `rgl.renyiaccum` <-
     function(x, rgl.height = 0.2,  ...)
 {
+    if (!inherits(x, "renyiaccum"))
+        stop("'x' must be a 'renyiaccum' result object")
     y <- x[,,1] * rgl.height
     rgl.min = 0
     rgl.max = max(y)
@@ -10,7 +12,8 @@
     ylen <- ylim[2] - ylim[1] + 1
     colorlut <- rainbow(ylen)
     col <- colorlut[1000*y-ylim[1]+1]
-    rgl.bg(color = "white")
+    rgl.clear()
+    ## rgl.bg(color = "white")
     rgl.surface(xp, z, y, color=col)
     y <- x[,,5] * rgl.height
     ##rgl.surface(xp,z,y,color="grey", alpha=0.3)
