@@ -6,7 +6,7 @@
 \description{
   Function \code{ordiplot3d} displays three-dimensional ordination
   graphics using \code{\link[scatterplot3d]{scatterplot3d}}. Function 
-  works with all ordination results form \pkg{vegan} and all ordination 
+  works with all ordination results form \CRANpkg{vegan} and all ordination 
   results known by \code{\link[vegan]{scores}} function. 
 }
 \usage{
@@ -67,7 +67,7 @@ ordiplot3d(object, display = "sites", choices = 1:3, col = "black",
   functions.
 
   The function has a \code{scores} method to extract the projected
-  coordinates from the invisible return object. Standard \pkg{vegan}
+  coordinates from the invisible return object. Standard \CRANpkg{vegan}
   functions can be used with the returned object.  You can use any
   function from the \code{\link[vegan]{ordihull}} and
   \code{\link[vegan]{ordiarrows}} families (see Examples).
@@ -123,13 +123,13 @@ ordiplot3d(ord)
 ### A boxed 'pin' version
 ordiplot3d(ord, type = "h")
 ### More user control
-pl <- ordiplot3d(ord, scaling = 3, angle=15, type="n")
+pl <- ordiplot3d(ord, scaling = "symmetric", angle=15, type="n")
 points(pl, "points", pch=16, col="red", cex = 0.7)
 ### identify(pl, "arrows", col="blue") would put labels in better positions
 text(pl, "arrows", col="blue", pos=3)
 text(pl, "centroids", col="blue", pos=1, cex = 1)
 ### Add species using xyz.convert function returned by ordiplot3d
-sp <- scores(ord, choices=1:3, display="species", scaling=3)
+sp <- scores(ord, choices=1:3, display="species", scaling="symmetric")
 text(pl$xyz.convert(sp), rownames(sp), cex=0.7, xpd=TRUE)
 ### Two ways of adding fitted variables to ordination plots
 ord <- cca(dune)

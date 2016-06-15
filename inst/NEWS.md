@@ -1,3 +1,28 @@
+Version 1.0-1
+=============
+
+### Installation
+
+* Documentation uses some macros that require **R** version 3.2.0 or
+  higher.
+
+### Bug Fixes
+
+* `ordirgl` failed when `cex` was a variable instead of a number.
+
+* `orglcluster` did not obey `display` argument but always showed
+  `"sites"`.
+
+### New Features
+
+* `orglellipse` gained a new option `kind = "ehull"` to draw ellipsoid
+  hulls or minimum volume ellipsoids that enclose all points of a
+  `group`. The option is based on `ellipsoidhull()` function
+  (**cluster** package).
+
+* `ordirgl` allows suppressing display of environmental variables in
+  constrained ordination with `envfit = NA`.
+
 Version 1.0-0
 =============
 
@@ -5,6 +30,10 @@ Version 1.0-0
 
 * Package was updated to the current **rgl** (version 0.95) giving a
   facelift to the plots.
+
+### Bug Fixes
+
+ * `orglspider` was not exported.
 
 ### New Functions
 
