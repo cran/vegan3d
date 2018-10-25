@@ -1,6 +1,6 @@
-65c779d63377caeaa3326ff6eef7f537 *DESCRIPTION
+8a8e8e23ecd653169eb1f2a8202afce2 *DESCRIPTION
 0c2dc97c114f6e8743c5df4e4f3d9d2f *NAMESPACE
-9abc11b2883816eed428a6987abdc10e *R/ordiplot3d.R
+70ff7e72e6ee74c5203c907708a8331b *R/ordiplot3d.R
 eb2a826b9ca2d881447ecdbe73bbdb6f *R/ordirgl.R
 721ee6ae0171b0303d6861630c0eb47c *R/orditree3d.R
 d696ba823b3b2cff10bff48847a6533c *R/orglellipse.R
@@ -12,8 +12,8 @@ d3a55195c5a8cbadc1e810a7d65e0236 *R/orglsegments.R
 1f0ec157934df5e9908890eaaa4d7d89 *R/rgl.isomap.R
 2b5fcb826c1cfa6f02aa2dfb21fc95ce *R/rgl.renyiaccum.R
 459f34914f0416645498dc434a961e94 *R/scores.ordiplot3d.R
-1adb8030180184638d45ae71a77347ea *build/partial.rdb
-04d378fd9382b96880444e3b31eeac9c *inst/NEWS.md
+d39417847cbd0b78470564e9f81f7d86 *build/partial.rdb
+f368f3099af4223cfb1dd428de66577f *inst/NEWS.md
 f395748ce7a81a29e7b9488a537fcaf8 *inst/README.md
 104d528326300a6e9ea69ec1c2e4230d *man/ordiplot3d.Rd
 e9ed4d60ea0abe35ceb5de47487173e6 *man/ordirgl.Rd
