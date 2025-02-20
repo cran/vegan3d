@@ -5,12 +5,12 @@
 \title{Three-Dimensional Ordination Graphics }
 \description{
   Function \code{ordiplot3d} displays three-dimensional ordination
-  graphics using \code{\link[scatterplot3d]{scatterplot3d}}. Function 
+  graphics using \code{\link[scatterplot3d]{scatterplot3d}}. Function
   works with all ordination results form \CRANpkg{vegan} and all ordination 
   results known by \code{\link[vegan]{scores}} function. 
 }
 \usage{
-ordiplot3d(object, display = "sites", choices = 1:3, col = "black",
+ordiplot3d(object, display = "sites", choices = c(1,3,2), col = "black",
     ax.col = "red", arr.len = 0.1, arr.col = "blue", envfit,
     xlab, ylab, zlab, ...)
 }
@@ -19,7 +19,9 @@ ordiplot3d(object, display = "sites", choices = 1:3, col = "black",
     \code{\link[vegan]{scores}}. }
   \item{display}{Display \code{"sites"} or \code{"species"} or other
     ordination object recognized by \code{\link[vegan]{scores}}. }
-  \item{choices}{Selected three axes.}
+  \item{choices}{Selected three axes. First axis is horizontal, second
+    vertical and third is \dQuote{depth}. The default will use axes 1
+    and 2 as front panel.}
   \item{col}{Colours of points. Can be a vector, and factors are
     interpreted as their internal numerical codes.}
   \item{ax.col}{Axis colour (concerns only the crossed axes through the
@@ -28,8 +30,8 @@ ordiplot3d(object, display = "sites", choices = 1:3, col = "black",
     \code{\link{arrows}} function. }
   \item{arr.col}{Colour of biplot \code{\link{arrows}} and centroids of
     environmental variables. }
-  \item{envfit}{Fitted environmental variables from \code{\link{envfit}}
-    displayed in the graph.}
+  \item{envfit}{Fitted environmental variables from
+    \code{\link[vegan]{envfit}} displayed in the graph.}
   \item{xlab, ylab, zlab}{Axis labels passed to
     \code{\link[scatterplot3d]{scatterplot3d}}. If missing, labels  are
     taken from the
@@ -45,7 +47,7 @@ ordiplot3d(object, display = "sites", choices = 1:3, col = "black",
   taste (see \code{\link[scatterplot3d]{scatterplot3d}}).
 
   Function returns invisibly an object of class \code{ordiplot3d}
-  which inherits from \code{\link{ordiplot}}. The result object
+  which inherits from \code{\link[vegan]{ordiplot}}. The result object
   contains the projected coordinates of plotted items and functions to
   convert 3D data to 2D (see
   \code{\link[scatterplot3d]{scatterplot3d}}). Function will display
@@ -86,7 +88,7 @@ ordiplot3d(object, display = "sites", choices = 1:3, col = "black",
   \code{xyz.convert} which projects three-dimensional coordinates onto
   the plane used in the current plot (see Examples). In addition,
   there is a function \code{envfit.convert} that projects a
-  three-dimensional \code{\link{envfit}} object to the current plot.
+  three-dimensional \code{\link[vegan]{envfit}} object to the current plot.
 
 }
 
@@ -104,16 +106,20 @@ ordiplot3d(object, display = "sites", choices = 1:3, col = "black",
 
 \seealso{ \code{\link[scatterplot3d]{scatterplot3d}},
   \code{\link[vegan]{ordiplot}}, \code{\link[vegan]{ordiarrows}},
-  \code{\link[vegan]{ordihull}}.
+  \code{\link[vegan]{ordihull}}. Function \code{\link{ordilattice3d}}
+  provides an alternative based on \pkg{lattice} package. However, it
+  not yet quite matured and cannot display biplot (or fitted) arrows
+  and factor centroids. Currently, its main advantage is that it can
+  split plots in different panels by external variables.
 }
 
 \examples{
 ### Default 'ordiplot3d'
 data(dune, dune.env)
 ord <- cca(dune ~ A1 + Moisture, dune.env)
-ordiplot3d(ord)
+ordiplot3d(ord, scaling = "sites")
 ### A boxed 'pin' version
-ordiplot3d(ord, type = "h")
+ordiplot3d(ord, scaling = "sites", type = "h")
 ### More user control
 pl <- ordiplot3d(ord, scaling = "symmetric", angle=15, type="n")
 points(pl, "points", pch=16, col="red", cex = 0.7)
@@ -129,14 +135,14 @@ ef <- envfit(ord ~ Moisture + A1, dune.env, choices = 1:3)
 ### 1. use argument 'envfit'
 ordiplot3d(ord, envfit = ef)
 ### 2. use returned envfit.convert function for better user control
-pl3 <- ordiplot3d(ord)
+pl3 <- ordiplot3d(ord, scaling = "sites")
 plot(pl3$envfit.convert(ef), at = pl3$origin)
 ### envfit.convert() also handles different 'choices' of axes
 pl3 <- ordiplot3d(ord, choices = c(1,3,2))
 plot(pl3$envfit.convert(ef), at = pl3$origin)
 ### vegan::ordiXXXX functions can add items to the plot
 ord <- cca(dune)
-pl4 <- with(dune.env, ordiplot3d(ord, col = Management, pch=16))
+pl4 <- with(dune.env, ordiplot3d(ord, scaling = "sites", col = Management, pch=16))
 with(dune.env, ordiellipse(pl4, Management, draw = "poly", col = 1:4,
   alpha = 60))
 with(dune.env, ordispider(pl4, Management, col = 1:4, label = TRUE))
